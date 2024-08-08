@@ -27,6 +27,8 @@ ggplot(data = diamonds, aes(x = price, y = carat)) + geom_point(aes(color = colo
 
 ggplot(data = diamonds, aes(x = carat, fill = color)) + geom_histogram()
 
+ggplot(data = diamonds, aes(x = clarity, y = price, fill = color)) + geom_boxplot()
+
                                                      
                                                      
 ```
