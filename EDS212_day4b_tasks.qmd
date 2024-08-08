@@ -1,26 +1,33 @@
 ---
 title: "EDS 212 Day 4 - Session B - Tasks"
 author: "Nicole Pepper"
-
+editor_options: 
+  chunk_output_type: console
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
 ```{r}
-1 + 1
+# Load libraries
+library(tidyverse)
+library(skimr)
+library(GGally)
+
+
+# Explore our data
+names(diamonds)
+dim(diamonds)
+summary(diamonds)
+head(diamonds)
+tail(diamonds, n=3)
+
+# Create a pairs plot
+GGally::ggpairs(diamonds, columns = 3:6, ggplot2::aes(color = color))
+
+# Create a ggplot
+ggplot(data = diamonds, aes(x = price, y = carat)) + geom_point(aes(color = color))
+
+ggplot(data = diamonds, aes(x = carat, fill = color)) + geom_histogram()
+
+                                                     
+                                                     
 ```
 
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).
